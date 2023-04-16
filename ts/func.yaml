@@ -1,0 +1,25 @@
+specVersion: 0.35.0
+name: ts
+runtime: typescript
+registry: quay.io/kafilwara/ts
+image: quay.io/kafilwara/ts:latest
+imageDigest: sha256:2096a34a864eef4999b492eefa3791f82981a52b170067338b02ee9863837531
+created: 2023-04-16T23:54:24.740047705+06:00
+build:
+  buildpacks: []
+  builder: pack
+  buildEnvs:
+  - name: BP_NODE_RUN_SCRIPTS
+    value: build
+run:
+  volumes: []
+  envs: []
+deploy:
+  namespace: default
+  remote: false
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness

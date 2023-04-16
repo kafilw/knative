@@ -1,0 +1,23 @@
+specVersion: 0.35.0
+name: node
+runtime: node
+registry: quay.io/kafilwara/node
+image: quay.io/kafilwara/node:latest
+imageDigest: sha256:717a6ce2ecdc9e19ac77087ff813bab7ecc3e726a09a726ebfdb11622081e988
+created: 2023-04-16T23:53:57.474145932+06:00
+build:
+  buildpacks: []
+  builder: pack
+  buildEnvs: []
+run:
+  volumes: []
+  envs: []
+deploy:
+  namespace: default
+  remote: false
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness
