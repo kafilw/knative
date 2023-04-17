@@ -1,9 +1,9 @@
 specVersion: 0.35.0
 name: node
 runtime: node
-registry: quay.io/kafilwara/node
+registry: quay.io/kafilwara/node:latest
 image: quay.io/kafilwara/node:latest
-imageDigest: sha256:717a6ce2ecdc9e19ac77087ff813bab7ecc3e726a09a726ebfdb11622081e988
+imageDigest: sha256:0c5eecda24bcfd3025b8b6294d7f0f5dcc5b93157308e1b917624bb826395161
 created: 2023-04-16T23:53:57.474145932+06:00
 build:
   buildpacks: []
