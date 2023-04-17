@@ -9,6 +9,7 @@ var urlparams = {
 };
 
 export const handle = async (context) => {
+  const startTime = Date.now();
   let body = context.body;
   let data = body.data;
   let counter = body.counter;
@@ -32,6 +33,8 @@ export const handle = async (context) => {
 
   body.counter += 1;
   axios.post(urlparams.host, body, urlparams)
+  const endTime = Date.now();
+  console.log(`Execution time: ${endTime - startTime}ms`);
   //console.log(body);
   //return(body);
 

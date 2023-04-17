@@ -18,6 +18,7 @@
  */
 const axios = require('axios');
 
+
 var urlparams = {
   host: 'http://ts.default.127.0.0.1.sslip.io/',
   method: 'POST',
@@ -27,6 +28,7 @@ var urlparams = {
 };
 
 const handle = async (context) => {
+  const startTime = Date.now();
   let body = context.body;
   data = body.data;
   counter = body.counter;
@@ -54,6 +56,8 @@ const handle = async (context) => {
   //console.log("Body: " + body);
   axios.post(urlparams.host, body);
   //console.log(body)
+  const endTime = Date.now();
+  console.log(`Time taken: ${endTime - startTime}ms`);
   return body;
 }
 
