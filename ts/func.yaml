@@ -3,7 +3,7 @@ name: ts
 runtime: typescript
 registry: quay.io/kafilwara/ts
 image: quay.io/kafilwara/ts:latest
-imageDigest: sha256:2096a34a864eef4999b492eefa3791f82981a52b170067338b02ee9863837531
+imageDigest: sha256:7d64f2941b430c1352e907d8a73f523a9723b78c7b0a953a782b38d1f3c081e2
 created: 2023-04-16T23:54:24.740047705+06:00
 build:
   buildpacks: []
