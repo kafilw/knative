@@ -14,27 +14,34 @@ export const handle = async (context) => {
   let data = body.data;
   let counter = body.counter;
 
-  while(counter < 100) {
+  if (counter < 100) {
     if (data == 'ping') {
       console.log("Received ping");
       console.log("Counter= " + counter);
       body.data = 'pong';
+      //return { message: 'sent pong to node'}  
+
     } else if (data == 'pong') {
       console.log("Received pong");
       console.log("Counter= " + counter);
       body.data = 'ping';
+      //return { message: 'sent ping to node'}
     } else {
       console.log("Received unknown message");
       //return { statusCode: 405, statusMessage: 'Method not allowed' };
-    }  
-
-    counter += 1;
+    } 
   }
+  else {
+    console.log("Counter exceeded 100");
+    //return { message: 'Counter exceeded 100'}
+  }
+
 
   body.counter += 1;
   axios.post(urlparams.host, body, urlparams)
   const endTime = Date.now();
   console.log(`Execution time: ${endTime - startTime}ms`);
+  return (endTime - startTime);
   //console.log(body);
   //return(body);
 

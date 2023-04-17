@@ -33,32 +33,38 @@ const handle = async (context) => {
   data = body.data;
   counter = body.counter;
 
-  while(counter < 100) {
+  if (counter < 100) {
     if (data == 'ping') {
       console.log("Received ping");
       console.log("Counter= " + counter);
-      body.data = 'pong';    
+      body.data = 'pong';  
+      //return { message: 'sent pong to ts'}  
     }
     else if (data == 'pong') {
       console.log("Received pong");
       console.log("Counter= " + counter);
       body.data = 'ping';
+      //return { message: 'sent ping to ts'}
     }
     else {
       console.log("Received unknown message");
-      return { statusCode: 405, statusMessage: 'Method not allowed' };
+      //return { statusCode: 405, statusMessage: 'Method not allowed' };
     }
-
-    counter += 1;
   }
+  else {
+    console.log("Counter reached 100");
+    return { message: 'Counter reached 100' };
+  }
+  
 
   body.counter += 1;
   //console.log("Body: " + body);
   axios.post(urlparams.host, body);
   //console.log(body)
   const endTime = Date.now();
+  console.log("Last sent message: " + body.counter);
   console.log(`Time taken: ${endTime - startTime}ms`);
-  return body;
+  return (endTime - startTime);
 }
 
 module.exports = { handle };
