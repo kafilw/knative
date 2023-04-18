@@ -3,7 +3,7 @@ name: node
 runtime: node
 registry: quay.io/kafilwara/node
 image: quay.io/kafilwara/node:latest
-imageDigest: sha256:85c2d869a6042a5c414f2f0fa8de951f2e5695db56f565aa57ce7a70175b1dd8
+imageDigest: sha256:ac11eebf013ac1ab4a9f6e4b7f79dd463acd9882062e422f6f9519148496c79f
 created: 2023-04-16T23:53:57.474145932+06:00
 build:
   buildpacks: []
