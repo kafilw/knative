@@ -20,7 +20,7 @@ const axios = require('axios');
 
 
 var urlparams = {
-  host: 'http://ts.default.127.0.0.1.sslip.io/',
+  host: 'localhost:40943',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -53,7 +53,10 @@ const handle = async (context) => {
   }
   else {
     console.log("Counter reached 100");
-    return { message: 'Counter reached 100' };
+    const endTime = Date.now();
+    timeTaken = endTime - startTime;
+    console.log(`Time taken: ${timeTaken}ms`);
+    //return timeTaken;
   }
   
 
@@ -61,10 +64,9 @@ const handle = async (context) => {
   //console.log("Body: " + body);
   axios.post(urlparams.host, body);
   //console.log(body)
-  const endTime = Date.now();
   console.log("Last sent message: " + body.counter);
-  console.log(`Time taken: ${endTime - startTime}ms`);
-  return (endTime - startTime);
+  //console.log(`Time taken: ${endTime - startTime}ms`);
+  //return (endTime - startTime);
 }
 
 module.exports = { handle };

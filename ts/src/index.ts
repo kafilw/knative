@@ -1,7 +1,8 @@
 import axios from 'axios';
+//http://node.default.127.0.0.1.sslip.io/
 
 var urlparams = {
-  host: 'http://node.default.127.0.0.1.sslip.io/',
+  host: 'localhost:8080',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -33,15 +34,19 @@ export const handle = async (context) => {
   }
   else {
     console.log("Counter exceeded 100");
+    const endTime = Date.now();
+    const timeTaken = endTime - startTime;
+    console.log(`Execution time: ${timeTaken}ms`);
+    //return timeTaken;
+
     //return { message: 'Counter exceeded 100'}
   }
 
 
   body.counter += 1;
   axios.post(urlparams.host, body, urlparams)
-  const endTime = Date.now();
-  console.log(`Execution time: ${endTime - startTime}ms`);
-  return (endTime - startTime);
+  //console.log(`Execution time: ${endTime - startTime}ms`);
+  //return (endTime - startTime);
   //console.log(body);
   //return(body);
 
